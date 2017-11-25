@@ -8,8 +8,8 @@
 </head>
 <body>
 <!-- bugbugbug  video 中 加了poster 图片 这个属性后无法播放加密视频 -->
-	<video id="roomVideo" class="video-js vjs-default-skin vjs-big-play-centered" webkit-playsinline playsinline x5-video-player-type="h5"  preload="auto">
-	    <source src="video/test1/test1.m3u8"  type="application/x-mpegURL">
+	<video id="roomVideo" class="video-js vjs-default-skin vjs-big-play-centered" webkit-playsinline playsinline x5-video-player-type="h5"  preload="auto" controls width="640" height="264">
+	    <source src="video/test1/test1.m3u8"  type="application/x-mpegURL" >
 	</video>
 
 	<script src="//vjs.zencdn.net/6.2.8/video.js"></script>
@@ -22,6 +22,7 @@
 	            startVideo();
 	        })
 	    });
+        myPlayer.poster("https://localhost:8443/images/星空.jpg");
 
 	    function startVideo() {
 	        myPlayer.play();
