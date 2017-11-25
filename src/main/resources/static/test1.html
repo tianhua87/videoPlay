@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>videojs支持hls直播实例</title>
+	<link href="//vjs.zencdn.net/6.2.8/video-js.css" rel="stylesheet">
+
+	<meta charset="utf-8">
+</head>
+<body>
+<!-- bugbugbug  video 中 加了poster 图片 这个属性后无法播放加密视频 -->
+	<video id="roomVideo" class="video-js vjs-default-skin vjs-big-play-centered" webkit-playsinline playsinline x5-video-player-type="h5"  preload="auto">
+	    <source src="video/test1/test1.m3u8"  type="application/x-mpegURL">
+	</video>
+
+	<script src="//vjs.zencdn.net/6.2.8/video.js"></script>
+	<script src="videojs-hls-master/videojs-contrib-hls.js"></script>
+	<script type="text/javascript">
+	    var myPlayer = videojs('roomVideo',function(){
+	        console.log(this)
+	        this.on('loadedmetadata',function(){
+	            console.log('loadedmetadata');
+	            startVideo();
+	        })
+	    });
+
+	    function startVideo() {
+	        myPlayer.play();
+	    }
+	</script>
+
+</body>
+</html>
